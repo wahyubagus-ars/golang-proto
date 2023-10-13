@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package product;
+
+option go_package = "/data/proto/product";
+
+message ProductID {
+  string value = 1;
+}
+
+message Product {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  float price = 4;
+}
+
+service productInfo {
+  rpc addProduct(Product) returns (ProductID);
+  rpc getProduct(ProductID) returns (Product);
+}
